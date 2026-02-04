@@ -23,6 +23,12 @@ body[data-bs-theme="light"] {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(128, 128, 128, 0.25);
   }
+
+  input.form-control:focus,
+  textarea.form-control:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(128, 128, 128, 0.25);
+  }
 }
 
 body[data-bs-theme="dark"] {
@@ -85,12 +91,26 @@ body[data-bs-theme="dark"] {
 }
 
 .banner {
-  display: grid;
-  place-content: center;
   height: calc(100% - 240px);
 }
 
+.special-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
 @media (max-width: 576px) {
+ .special-position {
+    position: relative;
+  }
+  .alert {
+    position: absolute;
+    left: 15px;
+    width: 90% !important;
+  }
+ 
   #logoImg {
     max-width: 50px;
   }

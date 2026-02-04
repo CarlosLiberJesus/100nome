@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var mode = localStorage.getItem("theme");
   if (mode === null) {
-    mode = "light";
+    mode = "dark";
   }
 
   if (mode === "light") {
@@ -85,9 +85,24 @@ const translations = {
     pt: "Subscreva a nossa newsletter:",
     en: "Subscribe to our newsletter:",
   },
+  "subscribe_message": {
+    pt: "Deixe uma mensagem...",
+    en: "Leave a message...",
+  },
+  "subscribe_email": {
+    pt: "oseu@email.pt",
+    en: "youremail.com",
+  },
+  "subscribe-button": {
+    pt: "Subscrever",
+    en: "Subscribe",
+  },
 };
 
 function updateTranslations(lang) {
   $("#trans-banner-subtitle").text(translations["banner-subtitle"][lang]);
   $("#subscribe_label").text(translations["subscribe-label"][lang]);
+  $("#subscribe_message").attr("placeholder", translations["subscribe_message"][lang]);
+  $("#subscribe_email").attr("placeholder", translations["subscribe_email"][lang]);
+  $("#subscribe_button").text(translations["subscribe-button"][lang]);
 }

@@ -10,7 +10,7 @@ define("ADMIN_KERNEL", "../kernel/");     // The host you want to connect to.
 
 //BD
 define("HOST", "localhost");     // The host you want to connect to.
-define("USER", "root");    // The database username.
+define("USER", "phpmyadmin_user");    // The database username.
 define("PASSWORD", "Qwerty_12345");    // The database password.
 define("DATABASE", "100nome");    // The database name.
 
