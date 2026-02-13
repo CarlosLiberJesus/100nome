@@ -165,7 +165,7 @@ if (isset($_GET['task'])) {
 
     if (isset($_GET['page'])) {
       $page = $_GET['page'];
-      $allowed_pages = ['home', 'about', 'services', 'contact']; // Example allowed pages
+      $allowed_pages = ['home']; //, 'about', 'services', 'contact']; // Example allowed pages
       if (in_array($page, $allowed_pages)) {
         include_once("public/{$page}.php");
       } else {
