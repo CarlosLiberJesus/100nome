@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baú de Memórias - Onde a Alma se torna Legado</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (Vanilla JS) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --purple-primary: #764ba2;
+            --purple-gradient: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #667eea);
+            --text-gray: #334155;
+            --glass-bg: rgba(255, 255, 255, 0.98);
+            --transition-smooth: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-lg: 40px;
+            --border-radius-md: 32px;
+            --border-radius-sm: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-gray);
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Fundo Animado */
+        .bg-animated {
+            position: fixed;
+            inset: 0;
+            background: var(--purple-gradient);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container Glassmorphism */
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: var(--border-radius-lg);
+            border-top: 6px solid var(--purple-primary);
+            padding: 3.5rem;
+            box-shadow: 0 24px 64px rgba(118, 75, 162, 0.2), 0 0 40px rgba(118, 75, 162, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tipografia */
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--purple-primary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--purple-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #475569;
+        }
+
+        /* Elementos Decorativos */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: #f5f3ff;
+            border: 1px solid #ede9fe;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--purple-primary);
+            margin-bottom: 2rem;
+        }
+
+        /* KPIs */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .kpi-card {
+            background: rgba(248, 250, 252, 0.5);
+            border: 1px solid #f1f5f9;
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .kpi-card:hover {
+            background: #ffffff;
+            border-color: #ddd6fe;
+        }
+
+        .kpi-icon {
+            color: var(--purple-primary);
+            margin-bottom: 1rem;
+            opacity: 0.5;
+            display: inline-block;
+        }
+
+        .kpi-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--purple-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+        }
+
+        /* Secções de Conteúdo */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .main-container { padding: 2rem; }
+            h1 { font-size: 2.2rem; }
+        }
+
+        .highlight-box {
+            background: rgba(118, 75, 162, 0.03);
+            border-left: 5px solid var(--purple-primary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .highlight-title {
+            font-weight: 800;
+            color: var(--purple-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .list-unstyled {
+            list-style: none;
+        }
+
+        .list-unstyled li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .list-unstyled li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--purple-primary);
+            font-weight: bold;
+        }
+
+        /* Botão */
+        .btn-gradient {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.2);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animated"></div>
+
+    <main class="main-container">
+        <!-- Cabeçalho -->
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <div class="badge">
+                <i data-lucide="sparkles" size="14"></i>
+                <span>Elo Sénior • C. S. C. Santa Beatriz</span>
+            </div>
+            <h1>Cada vida é um livro <br> que merece ser lido.</h1>
+            <p style="max-width: 650px; margin: 0 auto;">
+                Em parceria com o <strong>Centro Social e Cultural de Santa Beatriz</strong>, estamos a abrir o nosso baú. Em breve, estas páginas estarão repletas da sabedoria de quem já caminhou muito.
+            </p>
+        </div>
+
+        <!-- KPIs (Início Zerado) -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <i data-lucide="users" class="kpi-icon"></i>
+                <span class="kpi-value">0</span>
+                <span class="kpi-label">Corações por ouvir</span>
+            </div>
+            <div class="kpi-card">
+                <i data-lucide="heart" class="kpi-icon"></i>
+                <span class="kpi-value">0</span>
+                <span class="kpi-label">Lembranças a caminho</span>
+            </div>
+            <div class="kpi-card">
+                <i data-lucide="pen-tool" class="kpi-icon"></i>
+                <span class="kpi-value">0</span>
+                <span class="kpi-label">Páginas em branco</span>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="content-grid">
+            <div>
+                <h2 style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i data-lucide="sun" style="color: #f59e0b;"></i>
+                    Porque começamos?
+                </h2>
+                <p>
+                    Muitas vezes, a pressa do mundo faz-nos esquecer de quem construiu o caminho onde hoje pisamos. O isolamento não é apenas falta de companhia, é o medo de que a nossa história se perca no tempo.
+                </p>
+                <p style="font-style: italic; border-left: 2px solid #ddd6fe; padding-left: 1.5rem; margin-top: 2rem;">
+                    "Iniciamos este projeto com o dever de devolver a cada avô e avó do nosso bairro o lugar de protagonista da sua própria jornada."
+                </p>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">
+                    <i data-lucide="coffee" size="20"></i>
+                    O nosso jeito de cuidar
+                </div>
+                <ul class="list-unstyled">
+                    <li>Sentamos para ouvir, sem pressa, respeitando o tempo de cada memória.</li>
+                    <li>Usamos a arte e a escrita como pontes para resgatar sorrisos antigos.</li>
+                    <li>Transformamos cada conversa num dossier físico, para herança eterna da família.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA / Compromisso -->
+        <div style="background: linear-gradient(to bottom right, #fdfbff, #ffffff); border: 1px solid #f3e8ff; padding: 3rem; border-radius: 32px; text-align: center; margin-bottom: 2rem;">
+            <h3 style="color: var(--purple-primary); font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;">Um Elo que não se quebra</h3>
+            <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 2rem;">
+                O Baú de Memórias é um braço do Projeto ELO. Onde houver uma história, estaremos lá para a segurar com dignidade e retidão.
+            </p>
+            <!-- Link de e-mail atualizado -->
+            <a href="mailto:daniel.a.n.s@hotmail.com?subject=Contacto: Baú de Memórias" class="btn-gradient">
+                Juntar-se à nossa Família
+                <i data-lucide="chevron-right" size="18"></i>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-brand">
+                <i data-lucide="hand-heart" size="16" style="color: var(--purple-primary);"></i>
+                <span>Projeto ELO & C. S. C. Santa Beatriz</span>
+            </div>
+            <div>Marvila • 2026 • Justiça e Retidão</div>
+        </footer>
+    </main>
+
+    <script>
+        // Inicializar ícones Lucide
+        lucide.createIcons();
+
+        // Log de operação para o protocolo SN
+        window.addEventListener('load', () => {
+            console.log('Baú de Memórias: Canal de comunicação ativado para Daniel Silva.');
+        });
+    </script>
+</body>
+</html>
