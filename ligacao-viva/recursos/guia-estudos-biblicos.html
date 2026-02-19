@@ -1,0 +1,358 @@
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Perguntas para Discussão Bíblica | Ligação Viva</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1a1a2e;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px) saturate(200%);
+            padding: 3.5rem;
+            border-radius: 32px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2), 0 0 80px rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #764ba2;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 3px solid #764ba2;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-left: 1.25rem;
+            border-left: 5px solid #764ba2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            color: #334155;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            color: #334155;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        
+        .destaque {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 5px solid #667eea;
+            padding: 1.75rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            letter-spacing: 0.02em;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
+        }
+        
+        strong {
+            color: #764ba2;
+            font-weight: 700;
+        }
+        
+        em {
+            color: #667eea;
+            font-style: italic;
+            font-weight: 600;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
+
+
+    <div class="container">
+        <h1>🗣️ Banco de Perguntas para Discussão Bíblica</h1>
+        <p><strong>Ferramenta para Facilitar Estudos Transformadores</strong><br>
+        Baseado no Método Indutivo e nos 5 Propósitos</p>
+
+        <h2>📖 COMO USAR ESTE BANCO DE PERGUNTAS</h2>
+
+        <h3>O Método das 3 Perguntas</h3>
+        <p>Cada estudo bíblico eficaz segue três níveis de pergunta:</p>
+
+        <h4>1. OBSERVAÇÃO (O que diz?)</h4>
+        <ul>
+            <li><strong>Foco:</strong> compreender o texto</li>
+            <li><strong>Resposta:</strong> factual, objectiva</li>
+            <li><strong>Exemplo:</strong> "Quem estava presente nesta cena?"</li>
+        </ul>
+
+        <h4>2. INTERPRETAÇÃO (O que significa?)</h4>
+        <ul>
+            <li><strong>Foco:</strong> compreender o princípio</li>
+            <li><strong>Resposta:</strong> analítica, contextual</li>
+            <li><strong>Exemplo:</strong> "Porque é que Jesus respondeu desta forma?"</li>
+        </ul>
+
+        <h4>3. APLICAÇÃO (O que exige de mim?)</h4>
+        <ul>
+            <li><strong>Foco:</strong> transformar comportamento</li>
+            <li><strong>Resposta:</strong> pessoal, prática</li>
+            <li><strong>Exemplo:</strong> "Como devo responder de forma similar esta semana?"</li>
+        </ul>
+
+        <div class="destaque">
+            <p><strong>Regra de Ouro:</strong> Nunca passe para a interpretação antes de observar bem. Nunca aplique antes de interpretar correctamente.</p>
+        </div>
+
+        <h2>🎯 PERGUNTAS POR TEMA</h2>
+
+        <h3>TEMA 1: COMUNHÃO E RELACIONAMENTOS</h3>
+
+        <h4>Texto Base: Actos 2:42-47 (A Igreja Primitiva)</h4>
+
+        <p><strong>Nível 1 - Observação:</strong></p>
+        <ol>
+            <li>Que actividades é que os primeiros cristãos praticavam regularmente? (v. 42)</li>
+            <li>Que atitudes marcavam os relacionamentos entre eles? (v. 44-45)</li>
+            <li>Onde é que eles se reuniam? Com que frequência? (v. 46)</li>
+            <li>Qual era a reacção das pessoas ao redor? (v. 47)</li>
+            <li>Quantas pessoas estavam a ser acrescentadas?</li>
+        </ol>
+
+        <p><strong>Nível 2 - Interpretação:</strong></p>
+        <ol>
+            <li>Porque é que Lucas escolheu destacar estas actividades específicas?</li>
+            <li>O que significava "partir o pão" no contexto judaico? Porque era importante?</li>
+            <li>Porque é que a generosidade material era evidência de transformação espiritual?</li>
+            <li>O que tornava este grupo tão atractivo para pessoas de fora?</li>
+            <li>Como é que a "alegria" e "sinceridade de coração" se manifestavam praticamente?</li>
+        </ol>
+
+        <p><strong>Nível 3 - Aplicação:</strong></p>
+        <ol>
+            <li>Das actividades em Actos 2:42, qual está mais ausente no nosso grupo? O que podemos fazer?</li>
+            <li>Quem no nosso grupo precisa de suporte material/prático esta semana?</li>
+            <li>Como podemos criar um ambiente de "alegria e sinceridade" nas nossas reuniões?</li>
+            <li>Quando foi a última vez que alguém novo quis juntar-se a nós? Porquê?</li>
+            <li><strong>Compromisso:</strong> Vamos orar por ___ (nomes) e procurar incluí-los esta semana.</li>
+        </ol>
+
+        <h4>Texto Base: João 13:1-17 (Jesus lava os pés)</h4>
+
+        <p><strong>Nível 1 - Observação:</strong></p>
+        <ol>
+            <li>O que é que Jesus sabia sobre os seus discípulos no momento da ceia? (v. 1, 3)</li>
+            <li>Qual era a função de um servo ao lavar pés? Porque era considerada humilhante?</li>
+            <li>Qual foi a reacção inicial de Pedro? Porquê? (v. 6-9)</li>
+            <li>O que é que Jesus disse sobre "lavar" e "banhar"? (v. 10)</li>
+            <li>O que é que Jesus afirmou ser o exemplo que deixou? (v. 15)</li>
+        </ol>
+
+        <p><strong>Nível 3 - Aplicação:</strong></p>
+        <ol>
+            <li>Quem na minha vida precisa de um acto de "lavagem de pés" esta semana? (serviço humilde)</li>
+            <li>Tenho permitido que Jesus "lave os meus pés" (mantenha a minha comunhão) regularmente?</li>
+            <li>Quando é que lamentei a dignidade de alguém ao servir? Como posso melhorar?</li>
+            <li>Líderes: Como é que a nossa liderança reflecte o "servir de coração" vs. "mandar de cima"?</li>
+            <li><strong>Compromisso:</strong> Vou servir ___ desta forma específica: ___</li>
+        </ol>
+
+        <h3>TEMA 2: DISCIPULADO E MATURIDADE</h3>
+
+        <h4>Texto Base: João 15:1-17 (A videira e os ramos)</h4>
+
+        <p><strong>Nível 1 - Observação:</strong></p>
+        <ol>
+            <li>Quem são os personagens nesta metáfora? (v. 1, 5)</li>
+            <li>O que acontece com ramos que não dão fruto? (v. 2, 6)</li>
+            <li>O que acontece com ramos que dão fruto? (v. 2)</li>
+            <li>Como é que o ramo permanece na videira? (v. 4, 7, 10)</li>
+            <li>Qual é o resultado de permanecer? (v. 5, 7-8, 11)</li>
+        </ol>
+
+        <p><strong>Nível 2 - Interpretação:</strong></p>
+        <ol>
+            <li>O que significa "permanecer" em Jesus na prática diária?</li>
+            <li>Qual a diferença entre "poda" e "lançar fora"? O que é que cada uma representa?</li>
+            <li>Porque é que Jesus repetiu "permanecei em mim" tantas vezes?</li>
+            <li>O que é "fruto" neste contexto? É apenas conversões?</li>
+            <li>Como é que a obediência se relaciona com a permanência? (v. 10, 14)</li>
+        </ol>
+
+        <p><strong>Nível 3 - Aplicação:</strong></p>
+        <ol>
+            <li>Em que área sinto que estou a ser "podado" actualmente? Como estou a responder?</li>
+            <li>O meu dia típico mostra que estou a "permanecer" ou a tentar viver separado?</li>
+            <li>Que "frutos" têm sido evidentes na minha vida recentemente?</li>
+            <li>Quando foi a última vez que a minha oração foi respondida "conforme a vontade de Deus"?</li>
+            <li><strong>Compromisso:</strong> Vou estabelecer este hábito de permanência: ___</li>
+        </ol>
+
+        <h4>Texto Base: Romanos 12:1-2 (Transformação da mente)</h4>
+
+        <p><strong>Nível 1 - Observação:</strong></p>
+        <ol>
+            <li>Qual é a "oferta" que Paulo pede? (v. 1)</li>
+            <li>Como é que esta oferta deve ser apresentada? (3 características no v. 1)</li>
+            <li>O que é que não devemos fazer? (v. 2)</li>
+            <li>O que é que devemos fazer em vez disso? (v. 2)</li>
+            <li>Qual é o resultado desta transformação? (v. 2)</li>
+        </ol>
+
+        <p><strong>Nível 3 - Aplicação:</strong></p>
+        <ol>
+            <li>Em que área ainda estou "conformado com o mundo"? (finanças, relacionamentos, ambições, etc.)</li>
+            <li>Quando foi a última vez que a minha mente foi "renovada"? O que causou isso?</li>
+            <li>Estou a viver uma "oferta viva" ou apenas a fazer obrigações religiosas?</li>
+            <li>Como posso discernir se algo é "boa, agradável e perfeita" vontade de Deus?</li>
+            <li><strong>Compromisso:</strong> Vou recusar-me a ___ e procurar ___ esta semana.</li>
+        </ol>
+
+        <h3>TEMA 3: MINISTÉRIO E SERVIÇO</h3>
+
+        <h4>Texto Base: 1 Coríntios 12:12-27 (Um corpo, muitos membros)</h4>
+
+        <p><strong>Nível 1 - Observação:</strong></p>
+        <ol>
+            <li>Qual é a metáfora principal deste texto?</li>
+            <li>Quantos membros compõem o corpo? (v. 12, 20)</li>
+            <li>O que é que os membros não devem dizer uns dos outros? (v. 15-16, 21)</li>
+            <li>Como é que Deus organizou os membros no corpo? (v. 18, 24, 28)</li>
+            <li>O que acontece quando um membro sofre? (v. 26)</li>
+        </ol>
+
+        <p><strong>Nível 3 - Aplicação:</strong></p>
+        <ol>
+            <li>Tenho sentido que "não sou importante" no grupo? De onde vem isso?</li>
+            <li>Tenho desprezado o ministério de alguém por parecer "menor"? Quem?</li>
+            <li>Como posso honrar mais os "membros menos visíveis" do nosso grupo?</li>
+            <li>Que dons espirituais/habilidades identifico noutros membros do grupo?</li>
+            <li><strong>Compromisso:</strong> Vou valorizar e encorajar ___ especificamente.</li>
+        </ol>
+
+        <h3>TEMA 4: EVANGELISMO E MISSÃO</h3>
+
+        <h4>Texto Base: Lucas 15 (Ovelha, moeda e filho perdido)</h4>
+
+        <p><strong>Nível 1 - Observação:</strong></p>
+        <ol>
+            <li>Quem eram os ouvintes destas parábolas? (v. 1-2)</li>
+            <li>O que é que cada personagem perdeu? Onde procurou?</li>
+            <li>Qual a reacção ao encontrar o perdido? (v. 5-6, 9, 22-24)</li>
+            <li>Quem se recusou a celebrar? Porquê? (v. 28-30)</li>
+            <li>Qual é a aplicação que Jesus faz em cada parábola?</li>
+        </ol>
+
+        <p><strong>Nível 3 - Aplicação:</strong></p>
+        <ol>
+            <li>Quem são as "ovelhas perdidas" que conheço? Estou a procurá-las activamente?</li>
+            <li>Tenho a atitude do irmão mais velho (ressentimento) ou do pai (celebração)?</li>
+            <li>Quando foi a última vez que celebramos uma conversão no nosso grupo?</li>
+            <li>O que me impede de alcançar não-crentes? Medo? Vergonha? Indiferença?</li>
+            <li><strong>Compromisso:</strong> Vou orar por ___ e convidá-lo(a) para ___.</li>
+        </ol>
+
+        <h2>💡 DICAS PARA FACILITAR DISCUSSÕES</h2>
+
+        <h3>O que FAZER:</h3>
+        <ul>
+            <li>✅ Fazer perguntas abertas ("O que acham?" em vez de "Concordam?")</li>
+            <li>✅ Dar tempo de silêncio após perguntas (conte até 10 mentalmente)</li>
+            <li>✅ Valorizar todas as respostas ("Obrigado por partilhar")</li>
+            <li>✅ Redirecionar monólogos ("Alguém mais quer acrescentar?")</li>
+            <li>✅ Conectar respostas ("Isso relaciona-se com o que João disse")</li>
+        </ul>
+
+        <h3>O que EVITAR:</h3>
+        <ul>
+            <li>❌ Responder às próprias perguntas</li>
+            <li>❌ Permitir que uma pessoa domine</li>
+            <li>❌ Julgar respostas ("Isso está errado")</li>
+            <li>❌ Desviar para tópicos não relacionados</li>
+            <li>❌ Terminar sem aplicação prática</li>
+        </ul>
+
+        <div class="destaque">
+            <h3>LEMBRE-SE:</h3>
+            <p><strong>"O objectivo não é terminar o estudo, mas transformar vidas."</strong></p>
+            <p>Se a discussão está rica e o tempo acabou, está tudo bem não cobrir todas as perguntas. Profundidade é mais importante que quantidade.</p>
+        </div>
+
+        <p style="margin-top: 3rem; text-align: center; color: #888; font-style: italic;">Este banco de perguntas é parte do projecto Ligação Viva — Recursos Purpose Driven para Líderes de Pequenos Grupos.</p>
+
+        <a href="../index.html" class="back-btn">← Voltar aos Recursos</a>
+    </div>

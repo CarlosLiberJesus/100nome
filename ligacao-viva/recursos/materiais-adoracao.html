@@ -1,0 +1,582 @@
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Recursos | Ligação Viva</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1a1a2e;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px) saturate(200%);
+            padding: 3.5rem;
+            border-radius: 32px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2), 0 0 80px rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #764ba2;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 3px solid #764ba2;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-left: 1.25rem;
+            border-left: 5px solid #764ba2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            color: #334155;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            color: #334155;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .destaque {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 5px solid #667eea;
+            padding: 1.75rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            letter-spacing: 0.02em;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
+        }
+        
+        strong {
+            color: #764ba2;
+            font-weight: 700;
+        }
+        
+        em {
+            color: #667eea;
+            font-style: italic;
+            font-weight: 600;
+        }
+        
+        /* Estilos para tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: rgba(102, 126, 234, 0.04);
+        }
+        
+        tbody tr:nth-child(even) {
+            background: rgba(248, 250, 252, 0.5);
+        }
+        
+        tbody tr:nth-child(even):hover {
+            background: rgba(102, 126, 234, 0.06);
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 2rem 1.5rem;
+                border-radius: 24px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+            
+            p, li, td {
+                font-size: 0.95rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 1rem;
+            }
+            
+            .back-btn {
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+
+
+    <div class="container">
+        <h1>🎓 Materiais de Treinamento Contínuo</h1>
+        <p><strong>Capacitação Mensal para Líderes de Pequenos Grupos</strong><br>
+        Desenvolver Excelência na Liderança Purpose Driven</p>
+
+        <h2>📅 PROGRAMA ANUAL DE FORMAÇÃO</h2>
+
+        <h3>ESTRUTURA MENSAL</h3>
+        <p>Cada mês foca-se numa competência específica de liderança:</p>
+
+        <table>
+            <tbody><tr>
+                <th>Mês</th>
+                <th>Tema Principal</th>
+                <th>Foco da Capacitação</th>
+            </tr>
+            <tr>
+                <td>Janeiro</td>
+                <td>Fundamentos Purpose Driven</td>
+                <td>Revisão e alinhamento</td>
+            </tr>
+            <tr>
+                <td>Fevereiro</td>
+                <td>Facilitação de Discussões</td>
+                <td>Comunicação e perguntas</td>
+            </tr>
+            <tr>
+                <td>Março</td>
+                <td>Resolução de Conflitos</td>
+                <td>Mediação e reconciliação</td>
+            </tr>
+            <tr>
+                <td>Abril</td>
+                <td>Desenvolvimento de Líderes</td>
+                <td>Multiplicação e formação</td>
+            </tr>
+            <tr>
+                <td>Maio</td>
+                <td>Aconselhamento Pastoral</td>
+                <td>Escuta e encaminhamento</td>
+            </tr>
+            <tr>
+                <td>Junho</td>
+                <td>Saúde Emocional do Líder</td>
+                <td>Autocuidado e prevenção</td>
+            </tr>
+            <tr>
+                <td>Julho</td>
+                <td>Evangelismo em Pequenos Grupos</td>
+                <td>Alcançar não-crentes</td>
+            </tr>
+            <tr>
+                <td>Agosto</td>
+                <td>Dinâmicas e Criatividade</td>
+                <td>Inovação nas reuniões</td>
+            </tr>
+            <tr>
+                <td>Setembro</td>
+                <td>Acompanhamento e Cuidado</td>
+                <td>Sistema de métricas</td>
+            </tr>
+            <tr>
+                <td>Outubro</td>
+                <td>Liderança em Crise</td>
+                <td>Momentos difíceis</td>
+            </tr>
+            <tr>
+                <td>Novembro</td>
+                <td>Celebração e Gratidão</td>
+                <td>Cultura de reconhecimento</td>
+            </tr>
+            <tr>
+                <td>Dezembro</td>
+                <td>Planeamento Estratégico</td>
+                <td>Metas para novo ano</td>
+            </tr>
+        </tbody></table>
+
+        <h2>🎯 MÓDULO 1: JANEIRO — FUNDAMENTOS PURPOSE DRIVEN</h2>
+        <p><strong>Revisão e Alinhamento Anual</strong></p>
+        <p><strong>Objectivo:</strong> Refrescar a visão e garantir que todos os líderes estejam alinhados com a metodologia Purpose Driven.</p>
+
+        <h3>SESSÃO DE FORMAÇÃO (2 horas)</h3>
+
+        <h4>1. ABERTURA: O PORQUÊ DA REUNIÃO (15 min)</h4>
+        <p><strong>Actividade: "A História do Ano"</strong></p>
+        <p>Cada líder partilha em 1 minuto:</p>
+        <ul>
+            <li>Uma vitória do seu grupo no ano passado</li>
+            <li>Um desafio que enfrentou</li>
+            <li>Uma expectativa para este ano</li>
+        </ul>
+
+        <h4>2. REVISÃO DOS 5 PROPÓSITOS (30 min)</h4>
+        <table>
+            <tbody><tr>
+                <th>PROPÓSITO</th>
+                <th>PERGUNTA-CHAVE</th>
+                <th>SINAL DE ÊXITO</th>
+            </tr>
+            <tr>
+                <td>ADORAÇÃO</td>
+                <td>"Estamos a ajudar pessoas a amar a Deus?"</td>
+                <td>Vida devocional consistente</td>
+            </tr>
+            <tr>
+                <td>COMUNHÃO</td>
+                <td>"Estamos a criar comunidade?"</td>
+                <td>Relacionamentos fora do grupo</td>
+            </tr>
+            <tr>
+                <td>DISCIPULADO</td>
+                <td>"Estamos a formar carácter cristão?"</td>
+                <td>Mudança comportamental visível</td>
+            </tr>
+            <tr>
+                <td>MINISTÉRIO</td>
+                <td>"Todos estão a servir?"</td>
+                <td>Cada membro a usar os seus dons</td>
+            </tr>
+            <tr>
+                <td>EVANGELISMO</td>
+                <td>"Estamos a alcançar perdidos?"</td>
+                <td>Novas pessoas a serem alcançadas</td>
+            </tr>
+        </tbody></table>
+
+        <h4>3. O FUNIL DE COMPROMISSO EM ACÇÃO (25 min)</h4>
+        <p><strong>Dinâmica: "Classificação Rápida"</strong></p>
+        <p>Cada líder recebe fichas com nomes fictícios de membros. Deve classificar cada um num nível do Funil e definir a próxima acção.</p>
+
+        <h4>4. METAS SMART PARA O ANO (30 min)</h4>
+        <p>Cada líder escreve 3 metas para o seu grupo seguindo o modelo SMART:</p>
+        <ul>
+            <li><strong>Específica:</strong> Clara e bem definida</li>
+            <li><strong>Mensurável:</strong> Pode ser quantificada</li>
+            <li><strong>Atingível:</strong> Realista</li>
+            <li><strong>Relevante:</strong> Alinhada com propósitos</li>
+            <li><strong>Temporal:</strong> Prazo definido</li>
+        </ul>
+
+        <h2>🎯 MÓDULO 2: FEVEREIRO — FACILITAÇÃO DE DISCUSSÕES</h2>
+        <p><strong>A Arte de Fazer Boas Perguntas</strong></p>
+        <p><strong>Objectivo:</strong> Desenvolver habilidade de conduzir discussões bíblicas transformadoras.</p>
+
+        <h3>TÉCNICAS DE FACILITAÇÃO</h3>
+
+        <h4>1. O MÉTODO INDUTIVO SIMPLIFICADO</h4>
+        <p><strong>Os 3 Níveis de Pergunta:</strong></p>
+        <ul>
+            <li><strong>NÍVEL 1: OBSERVAÇÃO</strong> — "O que o texto diz?" (Factual, Objectivo)</li>
+            <li><strong>NÍVEL 2: INTERPRETAÇÃO</strong> — "O que o texto significa?" (Analítico, Contextual)</li>
+            <li><strong>NÍVEL 3: APLICAÇÃO</strong> — "O que o texto exige?" (Prático, Pessoal)</li>
+        </ul>
+
+        <h4>2. TIPOS DE PERGUNTA EFICAZES</h4>
+        <p><strong>Perguntas de Aquecimento (para iniciar):</strong></p>
+        <ul>
+            <li>"Que palavra saltou aos vossos olhos?"</li>
+            <li>"O que já sabiam sobre isto?"</li>
+            <li>"Resumam este texto numa frase"</li>
+        </ul>
+
+        <p><strong>Perguntas de Aprofundamento:</strong></p>
+        <ul>
+            <li>"Porque acham que [personagem] agiu assim?"</li>
+            <li>"O que sentiriam se estivessem nesta situação?"</li>
+            <li>"Como é que isto desafia a vossa compreensão anterior?"</li>
+        </ul>
+
+        <p><strong>Perguntas de Aplicação:</strong></p>
+        <ul>
+            <li>"O que vão fazer de diferente esta semana?"</li>
+            <li>"Quem precisa ouvir isto de vocês?"</li>
+            <li>"Como vamos apoiar-nos mutuamente nisto?"</li>
+        </ul>
+
+        <h4>3. LIDAR COM SITUAÇÕES DIFÍCEIS</h4>
+
+        <p><strong>Situação: Silêncio Constrangedor</strong></p>
+        <ul>
+            <li>Reformule a pergunta de forma mais simples</li>
+            <li>Dê um exemplo pessoal primeiro</li>
+            <li>Divida em duplas para discutir antes</li>
+        </ul>
+
+        <p><strong>Situação: Resposta Teologicamente Errada</strong></p>
+        <ul>
+            <li>Não corrija directamente</li>
+            <li>Pergunte: "Alguém vê isto de forma diferente?"</li>
+            <li>Redirecione para o texto: "O que é que o texto diz sobre isso?"</li>
+        </ul>
+
+        <p><strong>Situação: Membro Dominador</strong></p>
+        <ul>
+            <li>"Obrigado, João. Alguém que ainda não falou quer partilhar?"</li>
+            <li>Use técnica de "rodada" (todos falam uma vez antes de alguém falar duas vezes)</li>
+            <li>Conversa particular após a reunião</li>
+        </ul>
+
+        <h2>🎯 MÓDULO 3: MARÇO — RESOLUÇÃO DE CONFLITOS</h2>
+        <p><strong>Mediação e Reconciliação</strong></p>
+        <p><strong>Objectivo:</strong> Equipar líderes para lidar com conflitos de forma bíblica e restauradora.</p>
+
+        <h3>OS 4 TIPOS DE CONFLITO</h3>
+
+        <h4>1. Conflito de Personalidade</h4>
+        <p><strong>Causa:</strong> Estilos diferentes de comunicação ou temperamento</p>
+        <p><strong>Solução:</strong> Ensinar sobre diversidade e complementaridade</p>
+
+        <h4>2. Conflito de Expectativas</h4>
+        <p><strong>Causa:</strong> Mal-entendidos sobre compromissos ou responsabilidades</p>
+        <p><strong>Solução:</strong> Clarificar acordos de convivência</p>
+
+        <h4>3. Conflito de Valores</h4>
+        <p><strong>Causa:</strong> Diferenças em convicções teológicas ou éticas</p>
+        <p><strong>Solução:</strong> Distinguir entre essenciais e secundários</p>
+
+        <h4>4. Conflito de Poder</h4>
+        <p><strong>Causa:</strong> Disputa por liderança ou controlo</p>
+        <p><strong>Solução:</strong> Reafirmar estrutura de liderança servidora</p>
+
+        <h3>O PROCESSO DE MATEUS 18</h3>
+
+        <h4>Passo 1: Confronto Privado (v. 15)</h4>
+        <p>"Se teu irmão pecar contra ti, vai e repreende-o entre ti e ele só."</p>
+        <ul>
+            <li>Ir directamente à pessoa, não falar com outros</li>
+            <li>Falar em amor, não em acusação</li>
+            <li>Focar no comportamento, não na pessoa</li>
+        </ul>
+
+        <h4>Passo 2: Confronto com Testemunhas (v. 16)</h4>
+        <p>"Se não te ouvir, leva contigo mais um ou dois."</p>
+        <ul>
+            <li>Escolher pessoas maduras e imparciais</li>
+            <li>Objectivo: confirmar factos e mediar</li>
+            <li>Manter confidencialidade</li>
+        </ul>
+
+        <h4>Passo 3: Envolvimento da Igreja (v. 17)</h4>
+        <p>"Se recusar ouvi-los, dize-o à igreja."</p>
+        <ul>
+            <li>Envolver liderança pastoral</li>
+            <li>Último recurso antes de disciplina</li>
+            <li>Sempre com objectivo de restauração</li>
+        </ul>
+
+        <h2>🎯 MÓDULO 4: JUNHO — SAÚDE EMOCIONAL DO LÍDER</h2>
+        <p><strong>Autocuidado e Prevenção de Burnout</strong></p>
+        <p><strong>Objectivo:</strong> Ensinar líderes a cuidar da própria saúde emocional e espiritual.</p>
+
+        <h3>SINAIS DE ALERTA DE BURNOUT</h3>
+
+        <h4>Sinais Físicos:</h4>
+        <ul>
+            <li>Cansaço constante mesmo após descanso</li>
+            <li>Dores de cabeça ou tensão muscular frequentes</li>
+            <li>Problemas de sono (insónia ou sono excessivo)</li>
+            <li>Mudanças no apetite</li>
+        </ul>
+
+        <h4>Sinais Emocionais:</h4>
+        <ul>
+            <li>Irritabilidade ou impaciência crescente</li>
+            <li>Sensação de vazio ou desesperança</li>
+            <li>Perda de motivação ou alegria no ministério</li>
+            <li>Cinismo ou atitude negativa</li>
+        </ul>
+
+        <h4>Sinais Espirituais:</h4>
+        <ul>
+            <li>Oração sentida como obrigação</li>
+            <li>Leitura bíblica mecânica</li>
+            <li>Distanciamento de Deus</li>
+            <li>Dúvidas sobre chamado</li>
+        </ul>
+
+        <h3>PRÁTICAS DE AUTOCUIDADO</h3>
+
+        <h4>1. Sabbath Semanal</h4>
+        <p>Um dia completo de descanso e renovação:</p>
+        <ul>
+            <li>Sem reuniões de grupo</li>
+            <li>Sem preparação de estudos</li>
+            <li>Tempo com família</li>
+            <li>Actividades que restauram</li>
+        </ul>
+
+        <h4>2. Mentoria Regular</h4>
+        <p>Todo líder precisa de alguém que cuide dele:</p>
+        <ul>
+            <li>Reunião mensal com mentor</li>
+            <li>Partilha honesta de lutas</li>
+            <li>Accountability em áreas vulneráveis</li>
+            <li>Oração e encorajamento</li>
+        </ul>
+
+        <h4>3. Limites Saudáveis</h4>
+        <p>Aprender a dizer "não" quando necessário:</p>
+        <ul>
+            <li>Não estar disponível 24/7</li>
+            <li>Delegar responsabilidades</li>
+            <li>Proteger tempo familiar</li>
+            <li>Reconhecer limitações</li>
+        </ul>
+
+        <h4>4. Retiros Pessoais</h4>
+        <p>Tempo prolongado a sós com Deus:</p>
+        <ul>
+            <li>Trimestral: meio dia de silêncio</li>
+            <li>Anual: 2-3 dias de retiro</li>
+            <li>Sem agenda, apenas estar com Deus</li>
+            <li>Avaliar vida e ministério</li>
+        </ul>
+
+        <div class="destaque">
+            <h3>LEMBRE-SE:</h3>
+            <p><strong>"Não pode dar o que não tem. Cuide de si para poder cuidar de outros."</strong></p>
+            <p>Um líder emocionalmente saudável cria um grupo emocionalmente saudável. Autocuidado não é egoísmo, é mordomia.</p>
+        </div>
+
+        <h2>📚 RECURSOS ADICIONAIS</h2>
+
+        <h3>Livros Recomendados:</h3>
+        <ul>
+            <li><strong>"Uma Igreja com Propósitos"</strong> — Rick Warren</li>
+            <li><strong>"Liderança Espiritual"</strong> — J. Oswald Sanders</li>
+            <li><strong>"O Líder que Não Tinha Cargo"</strong> — Robin Sharma</li>
+            <li><strong>"Inteligência Emocional"</strong> — Daniel Goleman</li>
+        </ul>
+
+        <h3>Podcasts e Vídeos:</h3>
+        <ul>
+            <li>Saddleback Church Small Groups (YouTube)</li>
+            <li>North Point Community Church (Andy Stanley)</li>
+            <li>The Purpose Driven Life Podcast</li>
+        </ul>
+
+        <p style="margin-top: 3rem; text-align: center; color: #888; font-style: italic;">Este programa de treinamento é parte do projecto Ligação Viva — Recursos Purpose Driven para Líderes de Pequenos Grupos.</p>
+
+        <a href="../index.html" class="back-btn">← Voltar aos Recursos</a>
+    </div>

@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "titulo": "Manual do Líder de Pequeno Grupo",
+        "descricao": "Guia completo sobre os 5 propósitos, perfil do líder e funil de compromisso",
+        "icon": "📘",
+        "arquivo": "manual-lider.html"
+    },
+    {
+        "id": 2,
+        "titulo": "Guia de Estudos Bíblicos",
+        "descricao": "Banco de perguntas para discussões transformadoras usando método indutivo",
+        "icon": "📖",
+        "arquivo": "guia-estudos-biblicos.html"
+    },
+    {
+        "id": 3,
+        "titulo": "Currículo CLASS",
+        "descricao": "Sistema completo de discipulado: Membresia, Maturidade, Ministério e Missão",
+        "icon": "📚",
+        "arquivo": "curriculo-class.html"
+    },
+    {
+        "id": 4,
+        "titulo": "Plano de Crescimento Espiritual",
+        "descricao": "Ferramentas práticas para desenvolver hábitos espirituais consistentes",
+        "icon": "📈",
+        "arquivo": "estrategias-crescimento.html"
+    },
+    {
+        "id": 5,
+        "titulo": "Ferramentas de Liderança",
+        "descricao": "Templates de reunião, dinâmicas e guias práticos para líderes",
+        "icon": "🛠️",
+        "arquivo": "ferramentas-comunhao.html"
+    },
+    {
+        "id": 6,
+        "titulo": "Guia de Oração Intercessória",
+        "descricao": "Modelos e estratégias para desenvolver vida de oração no grupo",
+        "icon": "🙏",
+        "arquivo": "planos-servico.html"
+    },
+    {
+        "id": 7,
+        "titulo": "Recursos de Evangelismo",
+        "descricao": "Estratégias para alcançar não-crentes e abrir o grupo para visitantes",
+        "icon": "🌍",
+        "arquivo": "recursos-evangelismo.html"
+    },
+    {
+        "id": 8,
+        "titulo": "Biblioteca de Recursos",
+        "descricao": "Sistema de métricas, acompanhamento e materiais de formação contínua",
+        "icon": "📚",
+        "arquivo": "materiais-adoracao.html"
+    }
+]

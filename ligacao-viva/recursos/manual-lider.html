@@ -1,0 +1,549 @@
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual do Líder de Pequeno Grupo - Purpose Driven</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #1a1a2e;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px) saturate(200%);
+            padding: 3.5rem;
+            border-radius: 32px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2), 0 0 80px rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #764ba2;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 3px solid #764ba2;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-left: 1.25rem;
+            border-left: 5px solid #764ba2;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            color: #334155;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: #475569;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            color: #334155;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        
+        /* Boxes temáticas */
+        .purpose-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 5px solid #667eea;
+            padding: 1.75rem;
+            margin: 1.75rem 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+        }
+        
+        .purpose-box h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .key-question {
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+            border-left: 5px solid #ffc107;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+            font-style: italic;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.15);
+        }
+        
+        .profile-section {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(139, 195, 74, 0.08) 100%);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            border-left: 5px solid #4caf50;
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.1);
+        }
+        
+        .shape-box {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.08) 0%, rgba(255, 193, 7, 0.08) 100%);
+            padding: 1.75rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            border-left: 5px solid #ff9800;
+            box-shadow: 0 4px 16px rgba(255, 152, 0, 0.1);
+        }
+        
+        .problem-solution {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.08) 0%, rgba(233, 30, 99, 0.08) 100%);
+            padding: 1.75rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            border-left: 5px solid #f44336;
+            box-shadow: 0 4px 16px rgba(244, 67, 54, 0.1);
+        }
+        
+        .action-plan {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.08) 0%, rgba(3, 169, 244, 0.08) 100%);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            border-left: 5px solid #2196f3;
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.1);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #ffeb3b 0%, #fdd835 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .quote {
+            font-size: 1.35rem;
+            font-style: italic;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 2.5rem 0;
+            padding: 1.75rem;
+            border-top: 3px solid #667eea;
+            border-bottom: 3px solid #764ba2;
+            font-weight: 600;
+        }
+        
+        .destaque {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 5px solid #667eea;
+            padding: 1.75rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            letter-spacing: 0.02em;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
+        }
+        
+        strong {
+            color: #764ba2;
+            font-weight: 700;
+        }
+        
+        em {
+            color: #667eea;
+            font-style: italic;
+            font-weight: 600;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 2rem 1.5rem;
+                border-radius: 24px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .back-btn {
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+
+
+    <div class="container">
+        <h1>📘 Manual do Líder de Pequeno Grupo</h1>
+        <p><strong>Um Guia Purpose Driven para Liderança de Comunidades Transformadoras</strong></p>
+        
+        <p class="quote">"O propósito do pequeno grupo não é criar uma reunião semanal, mas formar discípulos que transformam o mundo."</p>
+        
+        <h2>🎯 INTRODUÇÃO: O DNA DO PEQUENO GRUPO PURPOSE DRIVEN</h2>
+        
+        <h3>O que é um Pequeno Grupo Purpose Driven?</h3>
+        <p>Um pequeno grupo Purpose Driven não é apenas um "grupo de estudo bíblico" ou uma "célula de oração". É uma comunidade intencional de 8-15 pessoas que se reúnem regularmente para experimentarem juntas os cinco propósitos que Deus tem para as suas vidas: <span class="highlight">Adoração, Comunhão, Discipulado, Ministério e Evangelismo</span>.</p>
+        
+        <p>A diferença crucial está na <strong>intencionalidade</strong>. Enquanto muitos grupos se focam em apenas um ou dois propósitos (geralmente comunhão e estudo), o grupo Purpose Driven procura deliberadamente equilibrar os cinco, criando um ambiente onde os membros crescem em todas as áreas da vida cristã.</p>
+        
+        <h3>O Modelo de Jesus</h3>
+        <p>Jesus mesmo utilizou este modelo. Ele tinha:</p>
+        <ul>
+            <li><strong>A multidão</strong> (milhares que ouviam os seus ensinamentos)</li>
+            <li><strong>A congregação</strong> (os 120 crentes que se reuniam)</li>
+            <li><strong>Os comprometidos</strong> (os 12 discípulos)</li>
+            <li><strong>O núcleo</strong> (os 3 mais próximos: Pedro, Tiago e João)</li>
+        </ul>
+        <p>O pequeno grupo é o ambiente onde a transformação real acontece — longe das multidões, em relações autênticas e profundas.</p>
+        
+        <h2>🔄 OS CINCO PROPÓSITOS NO CONTEXTO DO PEQUENO GRUPO</h2>
+        
+        <div class="purpose-box">
+            <h3>1. ADORAÇÃO — "Planeado para agradar a Deus"</h3>
+            <p><strong>Definição:</strong> Adoração é a nossa resposta a Deus por quem Ele é e pelo que fez. Vai além de músicas — é um estilo de vida.</p>
+            <p><strong>No pequeno grupo:</strong></p>
+            <ul>
+                <li>Momentos de oração sincera e espontânea</li>
+                <li>Testemunhos de gratidão</li>
+                <li>Leitura reverente das Escrituras</li>
+                <li>Expressões artísticas (música, poesia) quando apropriado</li>
+            </ul>
+            <div class="key-question">
+                <strong>Pergunta-chave:</strong> "Como é que o nosso grupo pode ajudar cada membro a desenvolver um relacionamento mais profundo com Deus?"
+            </div>
+        </div>
+        
+        <div class="purpose-box">
+            <h3>2. COMUNHÃO — "Formado para a família de Deus"</h3>
+            <p><strong>Definição:</strong> Comunhão (koinonia) é partilhar a vida uns com os outros de forma autêntica e transparente.</p>
+            <p><strong>No pequeno grupo:</strong></p>
+            <ul>
+                <li>Relacionamentos que transcendem a reunião semanal</li>
+                <li>Apoio mútuo em momentos de crise</li>
+                <li>Celebração das conquistas</li>
+                <li>Confissão de falhas sem julgamento</li>
+            </ul>
+            <div class="key-question">
+                <strong>Pergunta-chave:</strong> "Será que cada membro deste grupo tem pelo menos uma pessoa que o conhece profundamente e o ama incondicionalmente?"
+            </div>
+        </div>
+        
+        <div class="purpose-box">
+            <h3>3. DISCIPULADO — "Criado para ser semelhante a Cristo"</h3>
+            <p><strong>Definição:</strong> Discipulado é o processo de ser moldado à imagem de Cristo através da Palavra, do Espírito e da comunidade.</p>
+            <p><strong>No pequeno grupo:</strong></p>
+            <ul>
+                <li>Estudo bíblico que transforma, não apenas informa</li>
+                <li>Mentoria mútua (mais maduros com menos maduros)</li>
+                <li>Desafios de crescimento pessoal</li>
+                <li>Accountability (responsabilização amorosa)</li>
+            </ul>
+            <div class="key-question">
+                <strong>Pergunta-chave:</strong> "Estamos a produzir cristãos que conhecem a Bíblia, ou cristãos que são semelhantes a Cristo?"
+            </div>
+        </div>
+        
+        <div class="purpose-box">
+            <h3>4. MINISTÉRIO — "Moldado para servir"</h3>
+            <p><strong>Definição:</strong> Ministério é usar os dons e talentos que Deus nos deu para servir às necessidades dos outros.</p>
+            <p><strong>No pequeno grupo:</strong></p>
+            <ul>
+                <li>Cada membro descobre e usa o seu S.H.A.P.E. (Dons, Coração, Habilidades, Personalidade, Experiência)</li>
+                <li>Distribuição de responsabilidades (ninguém faz tudo sozinho)</li>
+                <li>Projectos de serviço dentro e fora do grupo</li>
+                <li>Cuidado prático uns dos outros</li>
+            </ul>
+            <div class="key-question">
+                <strong>Pergunta-chave:</strong> "Cada pessoa neste grupo está a usar os seus dons para servir, ou apenas a consumir o que outros oferecem?"
+            </div>
+        </div>
+        
+        <div class="purpose-box">
+            <h3>5. EVANGELISMO — "Feito para uma missão"</h3>
+            <p><strong>Definição:</strong> Evangelismo é partilhar o amor de Deus através de palavras e obras, levando outros a conhecerem Cristo.</p>
+            <p><strong>No pequeno grupo:</strong></p>
+            <ul>
+                <li>O grupo mantém uma "lista de oração de relacionamentos" — pessoas não-crentes que cada membro está a alcançar</li>
+                <li>Eventos abertos onde não-crentes se sentem bem-vindos</li>
+                <li>Testemunhos de fé partilhados</li>
+                <li>Projectos missionários conjuntos</li>
+            </ul>
+            <div class="key-question">
+                <strong>Pergunta-chave:</strong> "O nosso grupo existe apenas para nós mesmos, ou existe para alcançar outros?"
+            </div>
+        </div>
+        
+        <h2>🎯 O PERFIL DO LÍDER PURPOSE DRIVEN</h2>
+        
+        <div class="profile-section">
+            <h3>Não Precisa Ser Perfeito, Mas Disponível</h3>
+            <p>O maior mito sobre liderança de pequenos grupos é que o líder precisa ser um "super-cristão" — alguém que nunca falha, sempre tem respostas e vive numa montanha espiritual permanente.</p>
+            <p><strong>A verdade:</strong> Deus não procura líderes perfeitos. Ele procura líderes <em>disponíveis</em>.</p>
+        </div>
+        
+        <h3>As 5 Qualidades Essenciais do Líder</h3>
+        
+        <h4>1. CORAÇÃO DE PASTOR (Cuidado Genuíno)</h4>
+        <p>Um líder Purpose Driven não "gere" pessoas — <strong>cuida</strong> delas. Isto significa:</p>
+        <ul>
+            <li>Conhecer cada membro pelo nome e história</li>
+            <li>Lembrar-se de detalhes importantes (aniversários, desafios, vitórias)</li>
+            <li>Estar disponível fora das reuniões (chamadas, mensagens, café)</li>
+            <li>Chorar com quem chora, alegrar-se com quem se alegra</li>
+        </ul>
+        
+        <h4>2. VISÃO CLARA (Saber Para Onde Vai)</h4>
+        <p>Um líder sem visão é como um GPS sem destino — pode estar em movimento, mas não chega a lado nenhum.</p>
+        <ul>
+            <li><strong>Visão de curto prazo:</strong> O que queremos alcançar nos próximos 3 meses?</li>
+            <li><strong>Visão de longo prazo:</strong> Como é que este grupo se parece daqui a 1 ano?</li>
+            <li><strong>Visão de multiplicação:</strong> Quem estamos a preparar para liderar o próximo grupo?</li>
+        </ul>
+        
+        <h4>3. INTEGRIDADE PESSOAL (Viver o Que Ensina)</h4>
+        <p>As pessoas não seguem o que você diz — seguem o que você <strong>é</strong>.</p>
+        <ul>
+            <li>Se ensina sobre oração, ore visivelmente</li>
+            <li>Se fala de generosidade, seja generoso</li>
+            <li>Se prega perdão, perdoe rapidamente</li>
+            <li>Se promove comunhão, abra a sua própria vida</li>
+        </ul>
+        
+        <h4>4. CAPACIDADE DE EQUIPAR (Desenvolver Outros)</h4>
+        <p>O líder eficaz não faz tudo sozinho — <strong>multiplica-se</strong> através de outros.</p>
+        <ul>
+            <li>Identifique potenciais líderes no grupo</li>
+            <li>Delegue responsabilidades progressivamente</li>
+            <li>Dê feedback construtivo e encorajamento</li>
+            <li>Celebre quando outros têm sucesso</li>
+        </ul>
+        
+        <h4>5. DEPENDÊNCIA DE DEUS (Humildade Espiritual)</h4>
+        <p>O maior perigo da liderança é começar a confiar mais em si mesmo do que em Deus.</p>
+        <ul>
+            <li>Ore antes, durante e depois de cada reunião</li>
+            <li>Admita quando não sabe a resposta</li>
+            <li>Peça ajuda quando estiver sobrecarregado</li>
+            <li>Reconheça que só Deus transforma corações</li>
+        </ul>
+        
+        <h2>🛠️ O CONCEITO S.H.A.P.E. APLICADO À LIDERANÇA</h2>
+        
+        <div class="shape-box">
+            <p>Rick Warren desenvolveu o acrónimo S.H.A.P.E. para ajudar as pessoas a descobrirem como Deus as moldou para servir:</p>
+            
+            <h4>S - Spiritual Gifts (Dons Espirituais)</h4>
+            <p>Que dons espirituais você tem? (Ensino, liderança, misericórdia, hospitalidade, etc.)</p>
+            
+            <h4>H - Heart (Coração/Paixão)</h4>
+            <p>O que faz o seu coração bater mais forte? Que causas ou grupos de pessoas o comovem?</p>
+            
+            <h4>A - Abilities (Habilidades)</h4>
+            <p>Que talentos naturais você possui? (Organização, música, comunicação, etc.)</p>
+            
+            <h4>P - Personality (Personalidade)</h4>
+            <p>Você é introvertido ou extrovertido? Prefere estrutura ou flexibilidade? Tarefas ou pessoas?</p>
+            
+            <h4>E - Experiences (Experiências)</h4>
+            <p>Que experiências de vida (boas e más) moldaram quem você é hoje?</p>
+        </div>
+        
+        <h2>⚠️ OS 5 ERROS MAIS COMUNS DOS LÍDERES</h2>
+        
+        <div class="problem-solution">
+            <h3>ERRO 1: Fazer Tudo Sozinho</h3>
+            <p><strong>Problema:</strong> O líder assume todas as responsabilidades e acaba esgotado.</p>
+            <p><strong>Solução:</strong> Distribua tarefas desde o início. Alguém traz lanches, outro prepara música, outro lidera oração.</p>
+            
+            <h3>ERRO 2: Transformar o Grupo Num Monólogo</h3>
+            <p><strong>Problema:</strong> O líder fala 80% do tempo, o grupo apenas ouve.</p>
+            <p><strong>Solução:</strong> Use perguntas abertas. Limite-se a 30% do tempo de fala.</p>
+            
+            <h3>ERRO 3: Evitar Conflitos</h3>
+            <p><strong>Problema:</strong> Tensões não resolvidas acumulam-se até explodirem.</p>
+            <p><strong>Solução:</strong> Aborde conflitos cedo, em privado, com amor e verdade.</p>
+            
+            <h3>ERRO 4: Não Ter Estrutura</h3>
+            <p><strong>Problema:</strong> Reuniões sem rumo, que começam e terminam sem propósito claro.</p>
+            <p><strong>Solução:</strong> Tenha sempre um plano (mesmo que flexível). Comunique a agenda no início.</p>
+            
+            <h3>ERRO 5: Esquecer a Multiplicação</h3>
+            <p><strong>Problema:</strong> O grupo torna-se um "clube fechado" que nunca cresce.</p>
+            <p><strong>Solução:</strong> Desde o dia 1, fale sobre multiplicação. Identifique e treine um co-líder.</p>
+        </div>
+        
+        <h2>📅 O CICLO DE VIDA DO PEQUENO GRUPO</h2>
+        
+        <h3>FASE 1: FORMAÇÃO (Meses 1-3)</h3>
+        <p><strong>Foco:</strong> Construir relacionamentos e estabelecer identidade do grupo</p>
+        <ul>
+            <li>Membros conhecem-se superficialmente</li>
+            <li>Todos estão "bem comportados"</li>
+            <li>Líder define expectativas e valores</li>
+        </ul>
+        
+        <h3>FASE 2: TEMPESTADE (Meses 4-6)</h3>
+        <p><strong>Foco:</strong> Navegar conflitos e diferenças</p>
+        <ul>
+            <li>Personalidades começam a chocar</li>
+            <li>Surgem desacordos sobre direcção do grupo</li>
+            <li>Alguns membros podem sair — é normal</li>
+        </ul>
+        <p><strong>Dica do líder:</strong> Não entre em pânico. Esta fase é necessária para autenticidade.</p>
+        
+        <h3>FASE 3: NORMALIZAÇÃO (Meses 7-12)</h3>
+        <p><strong>Foco:</strong> Estabelecer ritmo e profundidade</p>
+        <ul>
+            <li>Grupo encontra o seu "groove"</li>
+            <li>Relacionamentos aprofundam-se</li>
+            <li>Membros começam a servir uns aos outros espontaneamente</li>
+        </ul>
+        
+        <h3>FASE 4: PERFORMANCE (Ano 2+)</h3>
+        <p><strong>Foco:</strong> Multiplicação e impacto externo</p>
+        <ul>
+            <li>Grupo funciona como uma família espiritual madura</li>
+            <li>Novos líderes emergem naturalmente</li>
+            <li>Grupo está pronto para multiplicar-se</li>
+        </ul>
+        
+        <h2>🎯 PLANO DE ACÇÃO: OS PRIMEIROS 90 DIAS</h2>
+        
+        <div class="action-plan">
+            <h3>MÊS 1: CONSTRUIR FUNDAÇÕES</h3>
+            <ul>
+                <li><strong>Semana 1:</strong> Reunião de lançamento — partilhar visão, conhecer histórias</li>
+                <li><strong>Semana 2:</strong> Estabelecer acordo do grupo (horários, local, compromissos)</li>
+                <li><strong>Semana 3:</strong> Primeiro estudo bíblico — tema: "Porque precisamos uns dos outros"</li>
+                <li><strong>Semana 4:</strong> Actividade social (jantar, passeio) — fortalecer laços</li>
+            </ul>
+            
+            <h3>MÊS 2: APROFUNDAR RELACIONAMENTOS</h3>
+            <ul>
+                <li><strong>Semana 5-7:</strong> Série de estudos sobre os 5 Propósitos</li>
+                <li><strong>Semana 8:</strong> Noite de testemunhos — cada um partilha a sua jornada de fé</li>
+            </ul>
+            
+            <h3>MÊS 3: MOBILIZAR PARA ACÇÃO</h3>
+            <ul>
+                <li><strong>Semana 9-10:</strong> Descobrir S.H.A.P.E. de cada membro</li>
+                <li><strong>Semana 11:</strong> Planear primeiro projecto de serviço em grupo</li>
+                <li><strong>Semana 12:</strong> Avaliar os primeiros 90 dias — o que funcionou? O que melhorar?</li>
+            </ul>
+        </div>
+        
+        <h2>📚 RECURSOS PRÁTICOS</h2>
+        
+        <h3>Ferramentas Essenciais do Líder</h3>
+        <ul>
+            <li><strong>Lista de contactos actualizada</strong> — com telefones, e-mails, aniversários</li>
+            <li><strong>Calendário do grupo</strong> — planeie com 3 meses de antecedência</li>
+            <li><strong>Diário de oração</strong> — registe pedidos e respostas</li>
+            <li><strong>Biblioteca de estudos</strong> — tenha sempre 2-3 estudos prontos</li>
+            <li><strong>Rede de apoio</strong> — outros líderes, pastor, mentor</li>
+        </ul>
+        
+        <h3>Perguntas para Avaliar a Saúde do Grupo</h3>
+        <p>Faça estas perguntas a si mesmo mensalmente:</p>
+        <ol>
+            <li>Os membros estão a crescer espiritualmente? Como sei?</li>
+            <li>Os relacionamentos estão a aprofundar-se?</li>
+            <li>Novos membros sentem-se bem-vindos e integrados?</li>
+            <li>O grupo está equilibrado nos cinco propósitos?</li>
+            <li>Estou a desenvolver novos líderes?</li>
+            <li>O grupo está a ter impacto fora de si mesmo?</li>
+        </ol>
+        
+        <h2>🙏 CONCLUSÃO</h2>
+        
+        <div class="destaque">
+            <p>Liderar um pequeno grupo é simultaneamente um privilégio e uma responsabilidade. Não requer perfeição, mas <strong>disponibilidade</strong>. Não exige todas as respostas, mas <strong>disposição</strong> para caminhar junto com outros na jornada de fé.</p>
+            
+            <p>Lembre-se: o seu papel não é ser o herói espiritual do grupo, mas criar um ambiente onde o <em>Espírito Santo</em> possa trabalhar livremente na vida de cada pessoa. Confie no processo, seja autêntico na sua liderança e celebre cada pequena vitória ao longo do caminho.</p>
+            
+            <p class="quote">"Não vos chamei servos, porque o servo não sabe o que faz o seu senhor; mas tenho-vos chamado amigos, porque tudo quanto ouvi de meu Pai vos tenho dado a conhecer." - João 15:15</p>
+            
+            <p>Este é o modelo de Jesus: liderança através da amizade, transformação através da comunidade, multiplicação através do investimento em pessoas. Que este manual seja um recurso útil enquanto segue este chamado extraordinário.</p>
+        </div>
+        
+        <a href="../index.html" class="back-btn">← Voltar aos Recursos</a>
+    </div>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operação Sucesso Escolar 2026 | Parceria ISEL</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary-blue: #0d6efd;
+            --dark-slate: #0f172a;
+            --light-slate: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-slate);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Animações de Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-section {
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+            background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            border-radius: 4px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+        }
+
+        .btn-outline-dark {
+            padding: 1rem 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border-width: 2px;
+        }
+
+        .value-card {
+            border: 2px solid var(--light-slate);
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+        }
+
+        .value-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #eef2ff;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .integration-section {
+            background-color: var(--dark-slate);
+            color: white;
+            padding: 8rem 0;
+        }
+
+        .protocol-box {
+            background: white;
+            padding: 3rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Botão Flutuante Email */
+        .email-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse-email 2s infinite;
+        }
+
+        @keyframes pulse-email {
+            0% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(13, 110, 253, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+        }
+
+        .email-fab:hover {
+            background-color: #0b5ed7;
+            color: white;
+            transform: scale(1.05);
+            animation: none;
+        }
+
+        .email-fab span {
+            max-width: 0;
+            overflow: hidden;
+            transition: max-width 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .email-fab:hover span {
+            max-width: 200px;
+        }
+
+        .hero-img-container {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-img-container img {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.1s ease-out;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .hero-img-container:hover img {
+            filter: grayscale(0%);
+        }
+
+        .badge-sn {
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1.5rem;
+            font-weight: 900;
+            box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+            z-index: 10;
+        }
+
+        .stats-bar {
+            background-color: #020617;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stat-divider {
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @media (max-width: 768px) {
+            .stat-divider-mobile {
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+            .stat-divider {
+                border-right: none;
+            }
+        }
+
+        .counter-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            color: #94a3b8;
+        }
+
+        /* Novas Estilizações para a Secção de Requisitos */
+        .step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Email Floating Button -->
+    <a href="mailto:daniel.a.n.s@hotmail.com?subject=Operação Sucesso Escolar 2026 - Contacto Direto" class="email-fab">
+        <i data-lucide="mail"></i>
+        <span>Contacto Direto</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-transparent" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <div class="bg-primary p-1 rounded text-white">
+                    <i data-lucide="zap" size="20"></i>
+                </div>
+                <span class="fw-bold text-uppercase tracking-tighter">Operação <span class="text-primary">Sucesso Escolar</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-4 text-uppercase fw-semibold small">
+                    <li class="nav-item"><a class="nav-link" href="#proposta">Visão</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#parceria">Requisitos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#integracao">Integração</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-dark btn-sm text-white px-4 py-2" href="mailto:daniel.a.n.s@hotmail.com?subject=Operação Sucesso Escolar 2026 - Agendamento de Reunião">Agendar Reunião</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7 reveal">
+                    <div class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-4 small fw-black text-uppercase tracking-widest">
+                        <i data-lucide="zap" class="me-1" size="14"></i> Parceria Estratégica ISEL
+                    </div>
+                    <h1 class="display-3 fw-black tracking-tighter mb-4">Construir o <span class="text-primary">Elo</span> antes da matrícula.</h1>
+                    <p class="lead text-muted border-start border-primary border-4 ps-4 mb-5">
+                        A Operação Sucesso Escolar 2026 mobiliza mentores do ISEL para preparar e integrar alunos do 12.º ano em Marvila, assegurando que os futuros estudantes cheguem capacitados e socialmente conectados.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="mailto:daniel.a.n.s@hotmail.com?subject=Operação Sucesso Escolar 2026 - Proposta de Aliança" class="btn btn-primary btn-lg d-flex align-items-center gap-2">
+                            Propor Aliança <i data-lucide="arrow-right" size="18"></i>
+                        </a>
+                        <a href="https://forms.gle/kd2FFWVGTbzBcR9m9" target="_blank" class="btn btn-outline-dark btn-lg">
+                            Demo: Portal do Mentor
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 reveal" style="transition-delay: 0.2s">
+                    <div class="hero-img-container shadow-lg" id="parallax-container">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" class="img-fluid" alt="Estudantes em Mentoria" id="hero-img">
+                        <div class="badge-sn">
+                            <h3 class="m-0 font-black">0%</h3>
+                            <p class="small m-0 text-uppercase tracking-widest leading-tight">Desperdício Humano</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar text-white py-5 shadow-lg">
+        <div class="container">
+            <div class="row g-0 text-center align-items-center">
+                <div class="col-6 col-md-3 reveal stat-divider py-4 py-md-0">
+                    <div class="px-3">
+                        <h2 class="display-5 fw-black text-primary mb-1"><span class="counter" data-target="12">0</span>.º ANO</h2>
+                        <p class="counter-label text-uppercase fw-bold m-0">Ano de Transição</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 reveal stat-divider py-4 py-md-0" style="transition-delay: 0.1s">
+                    <div class="px-3">
+                        <h2 class="display-5 fw-black text-primary mb-1">MARVILA</h2>
+                        <p class="counter-label text-uppercase fw-bold m-0">Território Local</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 reveal stat-divider py-4 py-md-0 stat-divider-mobile" style="transition-delay: 0.2s">
+                    <div class="px-3">
+                        <h2 class="display-5 fw-black text-primary mb-1">SN</h2>
+                        <p class="counter-label text-uppercase fw-bold m-0">Metodologia Lean</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 reveal py-4 py-md-0" style="transition-delay: 0.3s">
+                    <div class="px-3">
+                        <h2 class="display-5 fw-black text-primary mb-1"><span class="counter" data-target="100">0</span>%</h2>
+                        <p class="counter-label text-uppercase fw-bold m-0">Capital Social</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Novas Necessidades para a Parceria -->
+    <section id="parceria" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row align-items-center mb-5 reveal">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-black text-uppercase tracking-tighter mb-3">O que precisamos do ISEL</h2>
+                    <p class="lead text-muted">Para avançarmos com esta parceria estratégica de alto rendimento, identificamos três pilares fundamentais de colaboração.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <!-- Requisito 1 -->
+                <div class="col-md-4 reveal">
+                    <div class="value-card">
+                        <div class="step-number">01</div>
+                        <h5 class="fw-black text-uppercase tracking-tighter mb-3">Embaixador Académico</h5>
+                        <p class="text-muted small leading-relaxed">Uma pessoa da vossa estrutura (docente, funcionário ou estudante) que sirva de ponto de contacto para mobilizar e recrutar mentores entre os estudantes do ISEL.</p>
+                    </div>
+                </div>
+                <!-- Requisito 2 -->
+                <div class="col-md-4 reveal" style="transition-delay: 0.1s">
+                    <div class="value-card">
+                        <div class="step-number">02</div>
+                        <h5 class="fw-black text-uppercase tracking-tighter mb-3">Estudantes-Mentores</h5>
+                        <p class="text-muted small leading-relaxed">Alunos disponíveis para apoiar jovens em Marvila. Não é necessário serem da área de Educação; apenas vontade de ajudar e capacidade de comunicação.</p>
+                    </div>
+                </div>
+                <!-- Requisito 3 -->
+                <div class="col-md-4 reveal" style="transition-delay: 0.2s">
+                    <div class="value-card">
+                        <div class="step-number">03</div>
+                        <h5 class="fw-black text-uppercase tracking-tighter mb-3">Disponibilidade Flexível</h5>
+                        <p class="text-muted small leading-relaxed">Cada mentor gere a sua própria agenda no nosso sistema e participa consoante a sua disponibilidade — sem compromissos fixos ou obrigatoriedades.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Próximo Passo Box -->
+            <div class="row reveal" style="transition-delay: 0.3s">
+                <div class="col-12">
+                    <div class="bg-primary p-5 text-white d-md-flex align-items-center justify-content-between gap-4">
+                        <div class="mb-4 mb-md-0">
+                            <h4 class="fw-black text-uppercase tracking-tighter m-0 italic">Próximo Passo</h4>
+                            <p class="m-0 opacity-75">Uma reunião de 30 minutos para alinhamento e agendamento de uma sessão piloto com 3-4 estudantes.</p>
+                        </div>
+                        <a href="mailto:daniel.a.n.s@hotmail.com?subject=Operação Sucesso Escolar 2026 - Reunião de Alinhamento" class="btn btn-dark btn-lg flex-shrink-0 text-uppercase fw-black tracking-tighter">Agendar Agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integracao" class="integration-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6 reveal">
+                    <h2 class="display-5 fw-black text-uppercase tracking-tighter text-primary mb-4">O Fator "Pertença"</h2>
+                    <p class="lead text-light opacity-75 mb-5">
+                        A principal causa de abandono no 1.º ano é a ausência de integração social. Ao envolver mentores do ISEL no apoio ao 12.º ano, criamos um <strong>capital social antecipado</strong>:
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-12 reveal" style="transition-delay: 0.1s">
+                            <div class="d-flex gap-4 p-4 bg-white bg-opacity-10 border border-white border-opacity-10 transition-all hover:bg-opacity-20">
+                                <div class="bg-danger p-3 rounded-1 h-100">
+                                    <i data-lucide="heart-handshake" class="text-white"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-black text-uppercase tracking-tighter text-white">Acolhimento Antecipado</h5>
+                                    <p class="small text-light opacity-50 m-0">O aluno ingressa conhecendo rostos, dinâmicas e o rigor da instituição, reduzindo a ansiedade da transição.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 reveal" style="transition-delay: 0.2s">
+                            <div class="d-flex gap-4 p-4 bg-white bg-opacity-10 border border-white border-opacity-10 transition-all hover:bg-opacity-20">
+                                <div class="bg-primary p-3 rounded-1 h-100">
+                                    <i data-lucide="shield-check" class="text-white"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-black text-uppercase tracking-tighter text-primary">Mitigação do Insucesso</h5>
+                                    <p class="small text-light opacity-50 m-0">Garantimos que o investimento na captação de novos alunos resulte em diplomados resilientes e focados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal" style="transition-delay: 0.4s">
+                    <div class="bg-primary p-5 text-center shadow-lg">
+                        <i data-lucide="trending-up" size="64" class="mb-4 text-white"></i>
+                        <h3 class="display-6 fw-black text-uppercase tracking-tighter italic mb-4 text-white">Sucesso Sustentável</h3>
+                        <p class="text-white opacity-90 mb-5">
+                            O <strong>Protocolo SN</strong> elimina o desperdício académico. Convertemos alunos em situação de dúvida em universitários com um propósito definido e uma rede de apoio pronta.
+                        </p>
+                        <div class="row g-3 border-top border-white border-opacity-20 pt-5">
+                            <div class="col-6">
+                                <h2 class="fw-black m-0 text-white"><span class="counter" data-target="100">0</span>%</h2>
+                                <p class="small text-uppercase fw-bold opacity-70 m-0 text-white">Foco Integração</p>
+                            </div>
+                            <div class="col-6">
+                                <h2 class="fw-black m-0 text-white">+Eficiência</h2>
+                                <p class="small text-uppercase fw-bold opacity-70 m-0 text-white">Na Retenção</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocol Section -->
+    <section id="proposta" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6 reveal">
+                    <h2 class="display-6 fw-black text-uppercase tracking-tighter mb-4">Protocolo SN: <br>Engenharia de Resultados</h2>
+                    <p class="text-muted mb-4">
+                        O <strong>Projeto ELO</strong> intervém em Marvila com rigor metodológico. Propomos ao ISEL um modelo operacional (Plug & Play) que maximiza a visibilidade institucional com reduzida carga administrativa.
+                    </p>
+                    <ul class="list-unstyled space-y-3">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-primary rounded-1 p-1"><i data-lucide="check" class="text-white" size="14"></i></div>
+                            <span class="fw-bold text-uppercase small tracking-tight">Mentoria individualizada focada em exames</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-primary rounded-1 p-1"><i data-lucide="check" class="text-white" size="14"></i></div>
+                            <span class="fw-bold text-uppercase small tracking-tight">Participação em projeto de inovação</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-primary rounded-1 p-1"><i data-lucide="check" class="text-white" size="14"></i></div>
+                            <span class="fw-bold text-uppercase small tracking-tight">Monitorização rigorosa de KPIs académicos</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-primary rounded-1 p-1"><i data-lucide="check" class="text-white" size="14"></i></div>
+                            <span class="fw-bold text-uppercase small tracking-tight">Rede de apoio entre Mentores/Mentorados</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 reveal" style="transition-delay: 0.2s">
+                    <div class="protocol-box border-primary border-top border-4">
+                        <h4 class="fw-black text-uppercase tracking-tighter pb-3 mb-4">O Valor para o ISEL</h4>
+                        <div class="mb-4 transition-all hover:translate-x-2">
+                            <p class="text-primary fw-black text-uppercase small tracking-widest mb-1">Engenharia de Pertença</p>
+                            <p class="text-muted small m-0">Convertemos a incerteza do aluno em entusiasmo por integrar uma instituição de referência.</p>
+                        </div>
+                        <div class="mb-4 transition-all hover:translate-x-2">
+                            <p class="text-primary fw-black text-uppercase small tracking-widest mb-1">Fidelização de Talento</p>
+                            <p class="text-muted small m-0">Estudantes que recebem mentoria do ISEL tendem a priorizar a instituição na sua candidatura.</p>
+                        </div>
+                        <div class="pt-3">
+                            <p class="text-muted small italic fw-bold text-uppercase tracking-wider m-0">"A pertença é a base da resiliência académica."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-5 bg-dark text-white text-center position-relative overflow-hidden">
+        <div class="container py-5 position-relative z-index-10 reveal">
+            <h2 class="display-3 fw-black text-uppercase tracking-tighter mb-4">Inovação Social.<br>Sucesso Académico.</h2>
+            <p class="lead text-muted mb-5 mx-auto" style="max-width: 700px;">
+                Proponho uma reunião executiva para demonstrar como o ISEL pode liderar a integração social e o sucesso escolar no território de Marvila através do Protocolo SN.
+            </p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-4">
+                <a href="mailto:daniel.a.n.s@hotmail.com?subject=Operação Sucesso Escolar 2026 - Contacto Direto" class="btn btn-primary btn-lg d-flex align-items-center justify-center gap-3 w-auto">
+                    <i data-lucide="mail"></i> Contacto Direto
+                </a>
+                
+                <a href="https://forms.gle/kd2FFWVGTbzBcR9m9" target="_blank" class="text-decoration-none bg-white bg-opacity-10 p-3 d-flex align-items-center gap-4 border border-white border-opacity-25 transition-all hover:bg-opacity-20 w-auto rounded-1">
+                    <i data-lucide="qr-code" size="48" class="text-primary"></i>
+                    <div class="text-start">
+                        <p class="text-primary-emphasis small text-uppercase fw-bold m-0 leading-tight" style="color: #60a5fa !important;">Link para</p>
+                        <p class="small fw-black text-uppercase tracking-tighter m-0 text-white">Inscrição Mentores</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-white border-top">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-md-4 reveal">
+                    <div class="d-flex align-items-center gap-2 mb-4">
+                        <div class="bg-dark p-1 rounded text-white">
+                            <i data-lucide="zap" size="16"></i>
+                        </div>
+                        <span class="fw-bold text-uppercase tracking-tighter text-dark">Operação <span class="text-primary">Sucesso Escolar</span></span>
+                    </div>
+                    <p class="small text-muted text-uppercase fw-bold leading-relaxed">
+                        Bairro das Amendoeiras, Marvila.<br>
+                        Estratégia de Integração Antecipada ISEL.
+                    </p>
+                </div>
+                <div class="col-md-4 reveal" style="transition-delay: 0.1s">
+                    <h6 class="fw-black text-uppercase tracking-widest text-muted small mb-4">Responsável Projeto ELO</h6>
+                    <p class="fw-black fs-4 tracking-tighter m-0">Daniel Silva</p>
+                    <a href="mailto:daniel.a.n.s@hotmail.com" class="text-primary fw-black text-decoration-none small">daniel.a.n.s@hotmail.com</a>
+                </div>
+                <div class="col-md-4 text-md-end reveal" style="transition-delay: 0.2s">
+                    <h6 class="fw-black text-uppercase tracking-widest text-muted small mb-4">Metodologia</h6>
+                    <p class="fw-black fs-2 text-dark italic text-uppercase m-0" style="text-decoration: underline 4px #0d6efd;">SN PERFORMANCE</p>
+                </div>
+            </div>
+            <div class="border-top mt-5 pt-4 text-center">
+                <p class="text-muted small text-uppercase tracking-widest fw-bold m-0 text-dark">&copy; 2026 Projeto ELO Comunitário. Combate ao Desperdício Académico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vanilla JS para animações -->
+    <script>
+        lucide.createIcons();
+
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => animateCounter(counter));
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        function animateCounter(counter) {
+            const target = +counter.getAttribute('data-target');
+            const speed = 2000;
+            const increment = target / (speed / 16);
+
+            const updateCount = () => {
+                const count = +counter.innerText;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 16);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        }
+
+        const heroContainer = document.getElementById('parallax-container');
+        const heroImg = document.getElementById('hero-img');
+
+        if (heroContainer && heroImg) {
+            heroContainer.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = heroContainer.getBoundingClientRect();
+                const x = (e.clientX - left) / width - 0.5;
+                const y = (e.clientY - top) / height - 0.5;
+                heroImg.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.05)`;
+            });
+
+            heroContainer.addEventListener('mouseleave', () => {
+                heroImg.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+                nav.classList.remove('bg-transparent');
+                nav.classList.add('bg-white');
+            } else {
+                nav.classList.remove('scrolled');
+                nav.classList.add('bg-transparent');
+                nav.classList.remove('bg-white');
+            }
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('navbarNav');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => { 
+                if (window.innerWidth < 992) {
+                    bsCollapse.toggle();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
